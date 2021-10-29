@@ -21,6 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         toxenv:
+          - py310
           - lint
 
     steps:
