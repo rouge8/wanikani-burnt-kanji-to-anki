@@ -1,0 +1,113 @@
+---
+
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1
+    hooks:
+      # Filesystem
+      - id: check-case-conflict
+      - id: check-symlinks
+      # Whitespace
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      # Syntax
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: pretty-format-json
+        args:
+          - --autofix
+          - --indent=2
+          - --no-sort-keys
+      - id: check-toml
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.3
+    hooks:
+      - id: yamllint
+        args:
+          - --strict
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.9.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-mock-methods
+      - id: python-no-log-warn
+      - id: python-use-type-annotations
+      - id: rst-backticks
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v2.29.0
+    hooks:
+      - id: pyupgrade
+        args:
+          - --keep-percent-format
+          - --py310-plus
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.3.0
+    hooks:
+      - id: yesqa
+  - repo: https://github.com/asottile/add-trailing-comma
+    rev: v2.2.0
+    hooks:
+      - id: add-trailing-comma
+        args:
+          - --py36-plus
+  - repo: https://github.com/psf/black
+    rev: 21.9b0
+    hooks:
+      - id: black
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.9.3
+    hooks:
+      - id: isort
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.9.2
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-docstrings
+          - flake8-comprehensions
+          - flake8-bugbear
+  - repo: https://github.com/PyCQA/doc8
+    rev: 0.9.1
+    hooks:
+      - id: doc8
+        args:
+          - --quiet
+  - repo: local
+    hooks:
+      - id: attrs-apis
+        name: Use new attrs APIs (@attr.define, @attr.frozen, attr.field())
+        language: pygrep
+        entry: >
+          (?x)(
+            @attr\.s
+            |@attr\.dataclass
+            |@attr\.mutable
+            |attr\.ib\(
+          )
+        types: [python]
+      - id: logging.getLogger
+        name: Use structlog.get_logger() instead of logging.getLogger()
+        language: pygrep
+        entry: logging.getLogger\(
+        types: [python]
+      - id: missing-__init__.py
+        name: missing __init__.py
+        language: system
+        types: [python]
+        entry: >
+          sh -c '
+            MISSING=false
+            for f in $@; do
+              f="$(dirname ${f})"
+              if [ ! -f "${f}/__init__.py" ]; then
+                MISSING=true
+                echo "ERROR: No __init__.py found for ${f}/";
+              fi
+            done
+            if [ $MISSING == true ]; then
+              exit 1
+            fi
+          '
