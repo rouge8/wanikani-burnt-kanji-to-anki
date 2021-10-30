@@ -31,7 +31,9 @@ jobs:
           python-version: "3.10"
       - uses: actions/cache@v2
         with:
-          path: ~/.cache/pip
+          path: |
+            ~/.cache/pip
+            ~/.cache/pre-commit
           key: ${{ runner.os }}-pip-${{ matrix.toxenv }}
       - name: Install dependencies
         run: |
