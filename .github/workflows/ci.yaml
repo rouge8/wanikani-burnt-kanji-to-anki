@@ -23,6 +23,7 @@ jobs:
         toxenv:
           - py310
           - lint
+          - mypy
 
     steps:
       - uses: actions/checkout@v2
