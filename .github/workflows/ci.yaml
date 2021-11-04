@@ -35,6 +35,7 @@ jobs:
           path: |
             ~/.cache/pip
             ~/.cache/pre-commit
+            .mypy_cache
           key: ${{ runner.os }}-pip-${{ matrix.toxenv }}
       - name: Install dependencies
         run: |
