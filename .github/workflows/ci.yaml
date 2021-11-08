@@ -30,13 +30,17 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: "3.10"
+      - name: Generate the cache suffix
+        id: cache-suffix
+        run: |
+          echo ::set-output name=cache-suffix::${TOXENV//,/-}
       - uses: actions/cache@v2
         with:
           path: |
             ~/.cache/pip
             ~/.cache/pre-commit
             .mypy_cache
-          key: ${{ runner.os }}-pip-${{ matrix.toxenv }}
+          key: ${{ runner.os }}-pip-${{ steps.cache-suffix.outputs.cache-suffix }}
       - name: Install dependencies
         run: |
           set -xe
