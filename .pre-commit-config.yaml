@@ -48,7 +48,7 @@ repos:
     hooks:
       - id: yesqa
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.0
+    rev: v2.2.1
     hooks:
       - id: add-trailing-comma
         args:
@@ -61,8 +61,8 @@ repos:
     rev: 5.10.1
     hooks:
       - id: isort
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.9.2
+  - repo: https://github.com/PyCQA/flake8
+    rev: 4.0.1
     hooks:
       - id: flake8
         additional_dependencies:
