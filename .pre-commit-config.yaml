@@ -47,6 +47,11 @@ repos:
     rev: v1.3.0
     hooks:
       - id: yesqa
+        # TODO: Keep in sync with flake8
+        additional_dependencies:
+          - flake8-docstrings
+          - flake8-comprehensions
+          - flake8-bugbear
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.2.1
     hooks:
@@ -65,6 +70,7 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
+        # TODO: Keep in sync with yesqa
         additional_dependencies:
           - flake8-docstrings
           - flake8-comprehensions
