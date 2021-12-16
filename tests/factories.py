@@ -12,8 +12,14 @@ class KanjiFactory(factory.Factory):
     id = factory.Sequence(lambda n: n)
     document_url = factory.Faker("url")
     characters = factory.fuzzy.FuzzyText(length=1)
-    meanings = []
-    readings = []
+    meanings = [
+        "meaning1",
+        "meaning2",
+    ]
+    readings = [
+        "readings1",
+        "readings2",
+    ]
 
     @classmethod
     def _create(cls, model_class, *args, **kwargs):

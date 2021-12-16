@@ -16,6 +16,8 @@ certifi==2021.10.8
     #   httpx
 charset-normalizer==2.0.9
     # via httpx
+click==8.0.3
+    # via wanikani-burnt-kanji-to-anki
 h11==0.12.0
     # via httpcore
 httpcore==0.14.3

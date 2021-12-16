@@ -14,9 +14,13 @@ requires-python = ">=3.10"
 
 dependencies = [
   "attrs",
+  "click",
   "httpx",
   "structlog",
 ]
+
+[project.scripts]
+wanikani-burnt-kanji-to-anki = "wanikani_burnt_kanji_to_anki.__main__:cli"
 
 [project.urls]
 Home = "https://github.com/rouge8/wanikani-burnt-kanji-to-anki"
