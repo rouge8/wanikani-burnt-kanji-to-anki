@@ -3,11 +3,14 @@ wanikani-burnt-kanji-to-anki
 
 Sync burnt Kanji from WaniKani to an Anki deck.
 
-Keeping up to date
-------------------
+Development
+-----------
 
-The strength of this approach to a template repository is that it makes keeping
-up to date as easy as a ``git merge`` and resolving any conflicts:
+Keeping up to date with template changes
+++++++++++++++++++++++++++++++++++++++++
+
+To keep up to date with the latest `python-template
+<https://github.com/rouge8/python-template>`_ changes:
 
 .. code-block:: sh
 
