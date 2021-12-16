@@ -14,6 +14,7 @@ class Context:
 
 @click.group()
 @click.option("--wanikani-api-key", envvar="WANIKANI_API_KEY", required=True)
+@click.version_option()
 @click.pass_context
 def cli(ctx: click.Context, wanikani_api_key: str) -> None:
     ctx.obj = Context(api=WaniKaniAPIClient(wanikani_api_key))
