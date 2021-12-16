@@ -1,7 +1,7 @@
 [run]
 branch = True
 source =
-    python_template
+    wanikani_burnt_kanji_to_anki
     tests
 
 [report]
