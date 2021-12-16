@@ -63,7 +63,6 @@ class WaniKaniAPIClient:
 
         while next_url is not None:
             resp = self._request(next_url, params)
-            resp.raise_for_status()
             resp = resp.json()
 
             next_url = resp["pages"]["next_url"]
