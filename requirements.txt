@@ -6,3 +6,32 @@
 #
 -e .
     # via -r requirements.in
+anyio==3.4.0
+    # via httpcore
+attrs==21.2.0
+    # via wanikani-burnt-kanji-to-anki
+certifi==2021.10.8
+    # via
+    #   httpcore
+    #   httpx
+charset-normalizer==2.0.9
+    # via httpx
+h11==0.12.0
+    # via httpcore
+httpcore==0.14.3
+    # via httpx
+httpx==0.21.1
+    # via wanikani-burnt-kanji-to-anki
+idna==3.3
+    # via
+    #   anyio
+    #   rfc3986
+rfc3986[idna2008]==1.5.0
+    # via httpx
+sniffio==1.2.0
+    # via
+    #   anyio
+    #   httpcore
+    #   httpx
+structlog==21.4.0
+    # via wanikani-burnt-kanji-to-anki

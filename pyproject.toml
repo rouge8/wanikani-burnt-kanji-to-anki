@@ -12,6 +12,12 @@ classifiers = [
 dynamic = ["version", "description"]
 requires-python = ">=3.10"
 
+dependencies = [
+  "attrs",
+  "httpx",
+  "structlog",
+]
+
 [project.urls]
 Home = "https://github.com/rouge8/wanikani-burnt-kanji-to-anki"
 
