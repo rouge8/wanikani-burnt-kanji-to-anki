@@ -32,3 +32,6 @@ addopts = "--strict-config --strict-markers"
 strict = true
 allow_redefinition = true
 warn_unreachable = true
+
+[tool.pyright]
+venv = "wanikani-burnt-kanji-to-anki"
