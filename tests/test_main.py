@@ -3,6 +3,7 @@ from functools import partial
 import io
 
 from click.testing import CliRunner
+from click.testing import Result
 import pytest
 from pytest_mock import MockerFixture
 
@@ -10,13 +11,13 @@ from .factories import KanjiFactory
 
 
 @pytest.fixture
-def cli():
+def cli() -> partial[Result]:
     from wanikani_burnt_kanji_to_anki.__main__ import cli
 
     return partial(CliRunner(mix_stderr=False).invoke, cli, catch_exceptions=False)
 
 
-def test_csv(cli, mocker: MockerFixture):
+def test_csv(cli: partial[Result], mocker: MockerFixture) -> None:
     expected_kanji = KanjiFactory.build_batch(5)
 
     mocker.patch("wanikani_burnt_kanji_to_anki.wanikani.WaniKaniAPIClient.load_kanji")

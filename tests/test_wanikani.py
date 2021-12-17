@@ -1,20 +1,29 @@
+import faker
 from httpx import URL
 import pytest
+from pytest_httpx import HTTPXMock
 
 from wanikani_burnt_kanji_to_anki.wanikani import _KANJI
 from wanikani_burnt_kanji_to_anki.wanikani import Kanji
+from wanikani_burnt_kanji_to_anki.wanikani import WaniKaniAPIClient
 
 from .factories import KanjiFactory
 
 
 class TestWaniKaniAPIClient:
     @pytest.fixture
-    def headers(self, api_client):
+    def headers(self, api_client: WaniKaniAPIClient) -> dict[str, str]:
         return dict(api_client.client.headers) | {
             "Authorization": f"Bearer {api_client.api_key}",
         }
 
-    def test_load_kanji(self, headers, api_client, httpx_mock, faker):
+    def test_load_kanji(
+        self,
+        headers: dict[str, str],
+        api_client: WaniKaniAPIClient,
+        httpx_mock: HTTPXMock,
+        faker: faker.proxy.Faker,
+    ) -> None:
         assert not _KANJI, "Kanji cache has already been populated!"
 
         kanji = [
@@ -94,7 +103,13 @@ class TestWaniKaniAPIClient:
         api_client.load_kanji()
         assert _KANJI == expected_kanji
 
-    def test_burnt_kanji(self, headers, api_client, httpx_mock, faker):
+    def test_burnt_kanji(
+        self,
+        headers: dict[str, str],
+        api_client: WaniKaniAPIClient,
+        httpx_mock: HTTPXMock,
+        faker: faker.proxy.Faker,
+    ) -> None:
         expected_kanji = KanjiFactory.create_batch(faker.random_int(min=3, max=10))
 
         assignments = [
