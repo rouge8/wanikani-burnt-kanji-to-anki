@@ -1,13 +1,13 @@
 import csv as _csv
 import io
 
-import attr
+import attrs
 import click
 
 from wanikani_burnt_kanji_to_anki.wanikani import WaniKaniAPIClient
 
 
-@attr.frozen
+@attrs.frozen
 class Context:
     api: WaniKaniAPIClient
 

@@ -2,14 +2,14 @@ from collections.abc import Iterable
 import time
 import typing
 
-import attr
+import attrs
 import httpx
 import structlog
 
 log = structlog.get_logger()
 
 
-@attr.frozen
+@attrs.frozen
 class Kanji:
     id: int
     document_url: str
@@ -21,12 +21,12 @@ class Kanji:
 _KANJI: dict[int, Kanji] = {}
 
 
-@attr.frozen
+@attrs.frozen
 class WaniKaniAPIClient:
     BASE_URL = "https://api.wanikani.com/v2"
 
-    api_key: str = attr.field(repr=False)
-    client: httpx.Client = attr.field(factory=httpx.Client)
+    api_key: str = attrs.field(repr=False)
+    client: httpx.Client = attrs.field(factory=httpx.Client)
 
     def __attrs_post_init__(self) -> None:
         self.client.headers.update({"Wanikani-Revision": "20170710"})

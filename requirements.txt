@@ -8,7 +8,7 @@
     # via -r requirements.in
 anyio==3.4.0
     # via httpcore
-attrs==21.2.0
+attrs==21.3.0
     # via wanikani-burnt-kanji-to-anki
 certifi==2021.10.8
     # via
