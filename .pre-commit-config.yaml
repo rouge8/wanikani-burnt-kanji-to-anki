@@ -84,14 +84,21 @@ repos:
   - repo: local
     hooks:
       - id: attrs-apis
-        name: Use new attrs APIs (@attr.define, @attr.frozen, attr.field())
+        name: Use new attrs APIs (@attrs.define, @attrs.frozen, attrs.field())
         language: pygrep
         entry: >
           (?x)(
+            # Legacy APIs
             @attr\.s
-            |@attr\.dataclass
-            |@attr\.mutable
             |attr\.ib\(
+            |@attr\.dataclass
+            # Legacy namespace
+            |@attr\.define
+            |@attr\.frozen
+            |@attr\.mutable
+            |attr\.field\(
+            # Use @attrs.define instead
+            |@attrs\.mutable
           )
         types: [python]
       - id: logging.getLogger
