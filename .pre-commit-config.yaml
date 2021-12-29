@@ -4,7 +4,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.0.1
+    rev: v4.1.0
     hooks:
       # Filesystem
       - id: check-case-conflict
@@ -84,14 +84,21 @@ repos:
   - repo: local
     hooks:
       - id: attrs-apis
-        name: Use new attrs APIs (@attr.define, @attr.frozen, attr.field())
+        name: Use new attrs APIs (@attrs.define, @attrs.frozen, attrs.field())
         language: pygrep
         entry: >
           (?x)(
+            # Legacy APIs
             @attr\.s
-            |@attr\.dataclass
-            |@attr\.mutable
             |attr\.ib\(
+            |@attr\.dataclass
+            # Legacy namespace
+            |@attr\.define
+            |@attr\.frozen
+            |@attr\.mutable
+            |attr\.field\(
+            # Use @attrs.define instead
+            |@attrs\.mutable
           )
         types: [python]
       - id: logging.getLogger
