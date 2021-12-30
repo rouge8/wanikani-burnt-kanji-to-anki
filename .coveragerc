@@ -12,3 +12,4 @@ exclude_lines =
     raise NotImplementedError
     if typing.TYPE_CHECKING:
     assert_never()
+    if __name__ == "__main__":
