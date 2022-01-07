@@ -43,15 +43,6 @@ repos:
         args:
           - --keep-percent-format
           - --py310-plus
-  - repo: https://github.com/asottile/yesqa
-    rev: v1.3.0
-    hooks:
-      - id: yesqa
-        # TODO: Keep in sync with flake8
-        additional_dependencies:
-          - flake8-docstrings
-          - flake8-comprehensions
-          - flake8-bugbear
   - repo: https://github.com/asottile/add-trailing-comma
     rev: v2.2.1
     hooks:
@@ -70,11 +61,16 @@ repos:
     rev: 4.0.1
     hooks:
       - id: flake8
-        # TODO: Keep in sync with yesqa
-        additional_dependencies:
+        additional_dependencies: &flake8_dependencies
           - flake8-docstrings
           - flake8-comprehensions
           - flake8-bugbear
+          - flake8-no-implicit-concat
+  - repo: https://github.com/asottile/yesqa
+    rev: v1.3.0
+    hooks:
+      - id: yesqa
+        additional_dependencies: *flake8_dependencies
   - repo: https://github.com/PyCQA/doc8
     rev: 0.10.1
     hooks:
