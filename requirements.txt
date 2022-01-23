@@ -6,7 +6,7 @@
 #
 -e .
     # via -r requirements.in
-anyio==3.4.0
+anyio==3.5.0
     # via httpcore
 attrs==21.4.0
     # via wanikani-burnt-kanji-to-anki
@@ -20,7 +20,7 @@ click==8.0.3
     # via wanikani-burnt-kanji-to-anki
 h11==0.12.0
     # via httpcore
-httpcore==0.14.4
+httpcore==0.14.5
     # via httpx
 httpx==0.21.3
     # via wanikani-burnt-kanji-to-anki
