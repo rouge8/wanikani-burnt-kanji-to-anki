@@ -44,13 +44,13 @@ repos:
           - --keep-percent-format
           - --py310-plus
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.1
+    rev: v2.2.2
     hooks:
       - id: add-trailing-comma
         args:
           - --py36-plus
   - repo: https://github.com/psf/black
-    rev: 22.1.0
+    rev: 22.3.0
     hooks:
       - id: black
   - repo: https://github.com/PyCQA/isort
@@ -72,7 +72,7 @@ repos:
       - id: yesqa
         additional_dependencies: *flake8_dependencies
   - repo: https://github.com/PyCQA/doc8
-    rev: 0.10.1
+    rev: 0.11.0
     hooks:
       - id: doc8
         args:
