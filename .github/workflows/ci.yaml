@@ -34,7 +34,7 @@ jobs:
         id: cache-suffix
         run: |
           echo ::set-output name=cache-suffix::${TOXENV//,/-}
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: |
             ~/.cache/pip
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/setup-python@v3
         with:
           python-version: "3.10"
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         with:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-compile
