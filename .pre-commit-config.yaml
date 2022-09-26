@@ -37,14 +37,14 @@ repos:
       - id: python-use-type-annotations
       - id: rst-backticks
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.38.0
+    rev: v2.38.2
     hooks:
       - id: pyupgrade
         args:
           - --keep-percent-format
           - --py310-plus
   - repo: https://github.com/asottile/add-trailing-comma
-    rev: v2.2.3
+    rev: v2.3.0
     hooks:
       - id: add-trailing-comma
         args:
