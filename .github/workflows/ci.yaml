@@ -33,7 +33,7 @@ jobs:
       - name: Generate the cache suffix
         id: cache-suffix
         run: |
-          echo ::set-output name=cache-suffix::${TOXENV//,/-}
+          echo cache-suffix=${TOXENV//,/-} >> $GITHUB_OUTPUT
       - uses: actions/cache@v3
         with:
           path: |
