@@ -1,6 +1,6 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "wanikani_burnt_kanji_to_anki"
@@ -35,3 +35,6 @@ warn_unreachable = true
 
 [tool.pyright]
 venv = "wanikani-burnt-kanji-to-anki"
+
+[tool.hatch.version]
+path = "src/wanikani_burnt_kanji_to_anki/__init__.py"
