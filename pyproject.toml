@@ -54,6 +54,7 @@ select = [
   "UP",
   "ISC",
   "PGH",
+  "RUF",
 ]
 ignore = [
   # 1 blank line required before class docstring
