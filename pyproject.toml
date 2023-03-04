@@ -10,7 +10,7 @@ classifiers = [
   "Private :: Do Not Upload",
 ]
 dynamic = ["version", "description"]
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 
 dependencies = [
   "attrs >= 21.3.0",
@@ -40,6 +40,7 @@ venv = "wanikani-burnt-kanji-to-anki"
 path = "src/wanikani_burnt_kanji_to_anki/__init__.py"
 
 [tool.ruff]
+target-version = "py311"
 select = [
   "E",
   "F",
