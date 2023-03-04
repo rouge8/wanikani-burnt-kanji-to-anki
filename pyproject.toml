@@ -40,6 +40,7 @@ select = [
   "C4",
   "UP",
   "ISC",
+  "PGH",
 ]
 ignore = [
   # 1 blank line required before class docstring
