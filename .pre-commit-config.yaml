@@ -23,7 +23,7 @@ repos:
           - --no-sort-keys
       - id: check-toml
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.29.0
+    rev: v1.30.0
     hooks:
       - id: yamllint
         args:
@@ -34,7 +34,7 @@ repos:
       - id: python-check-mock-methods
       - id: rst-backticks
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.257
+    rev: v0.0.259
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
