@@ -80,6 +80,7 @@ ignore = [
 force-single-line = true
 force-sort-within-sections = true
 order-by-type = false
+known-first-party = ["wanikani_burnt_kanji_to_anki"]
 
 [tool.ruff.flake8-implicit-str-concat]
 allow-multiline = false
