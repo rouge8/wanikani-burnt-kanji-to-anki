@@ -34,7 +34,7 @@ repos:
       - id: python-check-mock-methods
       - id: rst-backticks
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.270
+    rev: v0.0.272
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
