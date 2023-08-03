@@ -1,3 +1,5 @@
+from typing import ClassVar
+
 import factory
 import factory.fuzzy
 
@@ -12,11 +14,11 @@ class KanjiFactory(factory.Factory):
     id = factory.Sequence(lambda n: n)
     document_url = factory.Faker("url")
     characters = factory.fuzzy.FuzzyText(length=1)
-    meanings = [
+    meanings: ClassVar[list[str]] = [
         "meaning1",
         "meaning2",
     ]
-    readings = [
+    readings: ClassVar[list[str]] = [
         "readings1",
         "readings2",
     ]
