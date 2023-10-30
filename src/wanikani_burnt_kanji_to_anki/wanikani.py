@@ -105,3 +105,14 @@ class WaniKaniAPIClient:
             {"subject_types": "kanji", "burned": "true", "hidden": "false"},
         ):
             yield _KANJI[assignment["data"]["subject_id"]]
+
+    def get_kanji(self, kanji: str) -> Kanji:
+        """
+        Look up an individual Kanji.
+
+        Must be called after loading the Kanji data into memory with
+        :meth:`~.load_kanji`.
+        """
+        return next(  # pragma: no branch
+            k for k in _KANJI.values() if k.characters == kanji
+        )

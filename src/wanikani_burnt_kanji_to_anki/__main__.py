@@ -23,9 +23,14 @@ def cli(ctx: click.Context, wanikani_api_key: str) -> None:
 
 
 @cli.command()
+@click.option("--additional-kanji", type=click.File("r"))
 @click.argument("output", type=click.File("w"), default="-")
 @click.pass_context
-def csv(ctx: click.Context, output: io.TextIOWrapper) -> None:
+def csv(
+    ctx: click.Context,
+    additional_kanji: io.TextIOWrapper | None,
+    output: io.TextIOWrapper,
+) -> None:
     """
     Write your burnt Kanji to a CSV suitable for import by Anki
 
@@ -40,6 +45,16 @@ def csv(ctx: click.Context, output: io.TextIOWrapper) -> None:
             ", ".join(kanji.readings),
         )
         writer.writerow(row)
+
+    if additional_kanji is not None:
+        for line in additional_kanji:
+            kanji = ctx.obj.api.get_kanji(line.strip())
+            row = (
+                kanji.characters,
+                ", ".join(kanji.meanings),
+                ", ".join(kanji.readings),
+            )
+            writer.writerow(row)
 
 
 if __name__ == "__main__":

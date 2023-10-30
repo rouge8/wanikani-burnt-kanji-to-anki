@@ -136,3 +136,9 @@ class TestWaniKaniAPIClient:
         )
 
         assert list(api_client.burnt_kanji()) == expected_kanji
+
+    def test_get_kanji(self, api_client: WaniKaniAPIClient) -> None:
+        random_kanji = KanjiFactory.create_batch(5)
+
+        for kanji in random_kanji:
+            assert api_client.get_kanji(kanji.characters) == kanji
