@@ -13,7 +13,7 @@ class KanjiFactory(factory.Factory):
 
     id = factory.Sequence(lambda n: n)
     document_url = factory.Faker("url")
-    characters = factory.fuzzy.FuzzyText(length=1)
+    characters = factory.Sequence(lambda n: str(n))
     meanings: ClassVar[list[str]] = [
         "meaning1",
         "meaning2",
