@@ -67,7 +67,7 @@ class TestWaniKaniAPIClient:
                 readings=[
                     reading["reading"]
                     for reading in k["data"]["readings"]
-                    if reading["accepted_answer"]
+                    if reading["primary"] or reading["accepted_answer"]
                 ],
             )
             for k in kanji
