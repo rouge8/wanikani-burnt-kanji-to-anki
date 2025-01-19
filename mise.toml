@@ -3,3 +3,9 @@ python = "3.13"
 
 [env]
 _.python.venv = { path = ".venv", create = true }
+
+[hooks]
+postinstall = [
+  "python -m ensurepip",
+  "python -m pip install -r requirements.txt",
+]
