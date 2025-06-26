@@ -49,26 +49,3 @@ jobs:
           python -m pip install --upgrade virtualenv tox
       - name: tox
         run: python -m tox
-
-  pip-compile:
-    name: pip-compile
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - uses: actions/cache@v4
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-compile
-      - name: Install dependencies
-        run: |
-          set -xe
-          python -VV
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install --upgrade virtualenv tox
-      - name: tox
-        # Verify requirements.txt is up to date
-        run: python -m tox -e pip-compile && git diff --exit-code

@@ -70,3 +70,13 @@ order-by-type = false
 
 [tool.ruff.flake8-implicit-str-concat]
 allow-multiline = false
+
+[dependency-groups]
+dev = [
+    "coverage>=7.9.1",
+    "mypy>=1.16.1",
+    "pre-commit>=4.2.0",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "pytest-randomly>=3.16.0",
+]
