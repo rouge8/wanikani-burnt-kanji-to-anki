@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         toxenv:
-          - py312,test-coverage
+          - py,test-coverage
           - lint
           - mypy
 
