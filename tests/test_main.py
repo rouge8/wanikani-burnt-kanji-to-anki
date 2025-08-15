@@ -15,7 +15,7 @@ from .factories import KanjiFactory
 def cli() -> partial[Result]:
     from wanikani_burnt_kanji_to_anki.__main__ import cli
 
-    return partial(CliRunner(mix_stderr=False).invoke, cli, catch_exceptions=False)
+    return partial(CliRunner().invoke, cli, catch_exceptions=False)
 
 
 @pytest.mark.parametrize("has_additional_kanji", [True, False])
