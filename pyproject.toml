@@ -10,7 +10,7 @@ classifiers = [
   "Private :: Do Not Upload",
 ]
 dynamic = ["version", "description"]
-requires-python = ">=3.13"
+requires-python = "~=3.13.1"
 
 dependencies = [
   "attrs >= 21.3.0",
@@ -87,14 +87,14 @@ allow-multiline = false
 
 [dependency-groups]
 dev = [
-    "coverage>=7.9.1",
-    "factory-boy>=3.3.3",
-    "faker>=37.4.0",
-    "mypy>=1.16.1",
-    "pre-commit>=4.2.0",
-    "pytest>=8.4.1",
-    "pytest-cov>=6.2.1",
+    "coverage~=7.9.1",
+    "factory-boy~=3.3.3",
+    "faker~=37.4.0",
+    "mypy~=1.16.1",
+    "pre-commit~=4.2.0",
+    "pytest~=8.4.1",
+    "pytest-cov~=6.2.1",
     "pytest-httpx==0.33.0",
-    "pytest-mock>=3.14.1",
-    "pytest-randomly>=3.16.0",
+    "pytest-mock~=3.14.1",
+    "pytest-randomly~=3.16.0",
 ]
