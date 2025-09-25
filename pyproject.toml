@@ -74,7 +74,7 @@ allow-multiline = false
 [dependency-groups]
 dev = [
     "coverage~=7.9.1",
-    "mypy~=1.16.1",
+    "mypy~=1.18.2",
     "pre-commit~=4.2.0",
     "pytest~=8.4.1",
     "pytest-cov~=6.2.1",
