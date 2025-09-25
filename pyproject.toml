@@ -77,6 +77,6 @@ dev = [
     "mypy~=1.18.2",
     "pre-commit~=4.3.0",
     "pytest~=8.4.1",
-    "pytest-cov~=6.2.1",
+    "pytest-cov~=7.0.0",
     "pytest-randomly~=3.16.0",
 ]
