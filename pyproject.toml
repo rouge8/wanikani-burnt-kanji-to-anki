@@ -94,7 +94,7 @@ dev = [
     "pytest-cov~=7.0.0",
     "pytest-randomly~=4.0.1",
     "factory-boy~=3.3.3",
-    "faker~=37.4.0",
+    "faker~=37.8.0",
     "pytest-httpx==0.33.0",
     "pytest-mock~=3.14.1",
 ]
