@@ -5,5 +5,14 @@
   ],
   "lockFileMaintenance": {
     "enabled": false
-  }
+  },
+  "packageRules": [
+    {
+      "matchPackageNames": [
+        "httpx",
+        "pytest-httpx"
+      ],
+      "groupName": "httpx"
+    }
+  ]
 }
